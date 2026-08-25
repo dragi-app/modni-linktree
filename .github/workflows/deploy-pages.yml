@@ -15,8 +15,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  NEXT_PUBLIC_BASE_PATH: /modni-linktree
-  NEXT_PUBLIC_SITE_URL: https://dragi-app.github.io/modni-linktree
+  NEXT_PUBLIC_BASE_PATH: ""
+  NEXT_PUBLIC_SITE_URL: https://linktree.modniflow.com
 
 jobs:
   build:
