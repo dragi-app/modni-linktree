@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { defaultContent, remoteContentUrl, type SiteContent } from './content';
 
@@ -24,8 +24,17 @@ export default function Home() {
   const experienceRef = useRef<HTMLDivElement>(null);
   const [content, setContent] = useState<SiteContent>(defaultContent);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     let frame = 0;
+    let initialFrame = 0;
+
+    const resetInitialScroll = () => {
+      if (window.location.hash) return;
+      if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'manual';
+      }
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    };
 
     const updateReveal = () => {
       const travel = Math.max(window.innerHeight * 0.66, 1);
@@ -46,13 +55,19 @@ export default function Home() {
       if (!frame) frame = window.requestAnimationFrame(updateReveal);
     };
 
+    resetInitialScroll();
     updateReveal();
+    initialFrame = window.requestAnimationFrame(() => {
+      resetInitialScroll();
+      updateReveal();
+    });
     window.addEventListener('scroll', requestReveal, { passive: true });
     window.addEventListener('resize', requestReveal);
 
     return () => {
       window.removeEventListener('scroll', requestReveal);
       window.removeEventListener('resize', requestReveal);
+      if (initialFrame) window.cancelAnimationFrame(initialFrame);
       if (frame) window.cancelAnimationFrame(frame);
     };
   }, []);
