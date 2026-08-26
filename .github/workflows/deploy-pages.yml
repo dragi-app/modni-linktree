@@ -1,4 +1,5 @@
 name: Публікація MODNI Linktree
+run-name: Публікація MODNI Linktree · ${{ github.sha }}
 
 on:
   push:
