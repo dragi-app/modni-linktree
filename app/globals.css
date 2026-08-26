@@ -37,6 +37,7 @@ a { color: inherit; }
   --product-rise: 150px;
   --product-opacity: 0;
   position: relative;
+  isolation: isolate;
   min-height: 100svh;
   background: var(--ink);
 }
@@ -138,9 +139,8 @@ a { color: inherit; }
 
 .content-shell {
   position: relative;
-  z-index: 20;
-  min-height: 2350px;
-  padding: calc(100svh + 1.25rem) 1.25rem 7rem;
+  min-height: 100svh;
+  padding: calc(100svh + 1.25rem) 1.25rem 18rem;
   overflow: hidden;
   background:
     linear-gradient(rgba(6,7,7,.34), rgba(6,7,7,.76) 36%, rgba(6,7,7,.96)),
@@ -342,13 +342,13 @@ a { color: inherit; }
   transform: translate3d(0, var(--product-rise), 0) rotate(10deg);
 }
 .product-sneaker {
-  top: calc(100svh + 31rem);
+  top: calc(100svh + 28rem);
   right: calc(50% + 230px);
   width: min(490px, 39vw);
   transform: translate3d(0, var(--product-rise), 0) rotate(-12deg);
 }
 .product-cap {
-  top: calc(100svh + 64rem);
+  top: calc(100svh + 49rem);
   left: calc(50% + 265px);
   width: min(370px, 29vw);
   transform: translate3d(0, var(--product-rise), 0) rotate(14deg);
@@ -384,23 +384,23 @@ footer span { color: #7f776c; font-size: .55rem; letter-spacing: .2em; }
 
 @media (max-width: 800px) {
   .hero-image { background-position: 57% 45%; }
-  .content-shell { min-height: 2050px; }
+  .content-shell { padding-bottom: 8rem; }
   .product-hoodie {
-    top: calc(100svh + 12rem);
+    top: calc(100svh + 10rem);
     left: auto;
     right: -12vw;
     width: min(285px, 48vw);
     transform: translate3d(0, var(--product-rise), 0) rotate(12deg);
   }
   .product-sneaker {
-    top: calc(100svh + 41rem);
+    top: calc(100svh + 30rem);
     right: auto;
     left: -17vw;
     width: min(330px, 58vw);
     transform: translate3d(0, var(--product-rise), 0) rotate(-15deg);
   }
   .product-cap {
-    top: calc(100svh + 72rem);
+    top: calc(100svh + 47rem);
     left: auto;
     right: -12vw;
     width: min(260px, 47vw);
