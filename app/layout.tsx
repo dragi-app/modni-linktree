@@ -12,15 +12,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: siteUrl,
-    title: 'HUSTLE with modni.',
+    title: 'Лови хвилю з modni.flow',
     description: 'Усі офіційні посилання MODNI FLOW в одному місці.',
-    images: [{ url: `${siteUrl}/og.jpg`, width: 1200, height: 630, alt: 'HUSTLE with modni.' }],
+    images: [{ url: `${siteUrl}/og-v3.jpg`, width: 1200, height: 630, alt: 'Лови хвилю з modni.flow' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HUSTLE with modni.',
+    title: 'Лови хвилю з modni.flow',
     description: 'Усі офіційні посилання MODNI FLOW в одному місці.',
-    images: [`${siteUrl}/og.jpg`],
+    images: [`${siteUrl}/og-v3.jpg`],
   },
 };
 

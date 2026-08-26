@@ -2,9 +2,19 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { defaultContent, remoteContentUrl, type SiteContent } from './content';
+import { FaBagShopping, FaGlobe, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa6';
+import type { IconType } from 'react-icons';
+import { defaultContent, remoteContentUrl, type LinkIcon, type SiteContent } from './content';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+
+const linkIcons: Record<LinkIcon, IconType> = {
+  website: FaGlobe,
+  instagram: FaInstagram,
+  marketplace: FaBagShopping,
+  tiktok: FaTiktok,
+  youtube: FaYoutube,
+};
 
 function assetUrl(value: string) {
   if (!value.startsWith('/')) return value;
@@ -107,6 +117,15 @@ export default function Home() {
         <div className="hero-image" aria-hidden="true" />
         <div className="hero-grain" aria-hidden="true" />
         <div className="hero-copy">
+          <Image
+            className="hero-logo"
+            src={assetUrl('/assets/modni-flow-logo.png')}
+            alt="MODNI FLOW"
+            width={1920}
+            height={1080}
+            priority
+            unoptimized
+          />
           <h1 id="hero-title">{content.hero.title}</h1>
           <p>{content.hero.subtitle}</p>
         </div>
@@ -143,22 +162,26 @@ export default function Home() {
           )}
 
           <nav className="links" aria-label="Соціальні мережі та магазини">
-            {content.links.map((link, index) => (
-              <a
-                className="link-card"
-                href={safeExternalUrl(link.href)}
-                target="_blank"
-                rel="noreferrer"
-                key={link.label}
-              >
-                <span className="link-index">{String(index + 1).padStart(2, '0')}</span>
-                <span className="link-copy">
-                  <strong>{link.label}</strong>
-                  <small>{link.note}</small>
-                </span>
-                <span className="link-arrow" aria-hidden="true">↗</span>
-              </a>
-            ))}
+            {content.links.map((link) => {
+              const LinkIcon = link.icon ? linkIcons[link.icon] : FaGlobe;
+
+              return (
+                <a
+                  className="link-card"
+                  href={safeExternalUrl(link.href)}
+                  target="_blank"
+                  rel="noreferrer"
+                  key={link.label}
+                >
+                  <span className="link-icon" aria-hidden="true"><LinkIcon /></span>
+                  <span className="link-copy">
+                    <strong>{link.label}</strong>
+                    <small>{link.note}</small>
+                  </span>
+                  <span className="link-arrow" aria-hidden="true">↗</span>
+                </a>
+              );
+            })}
           </nav>
 
           <footer>
