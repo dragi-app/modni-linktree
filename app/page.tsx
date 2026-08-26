@@ -37,11 +37,13 @@ export default function Home() {
     };
 
     const updateReveal = () => {
-      const travel = Math.max(window.innerHeight * 0.66, 1);
-      const reveal = Math.min(Math.max(window.scrollY / travel, 0), 1);
+      const foldTravel = Math.max(window.innerHeight * 0.66, 1);
+      const reveal = Math.min(Math.max(window.scrollY / foldTravel, 0), 1);
+      const exit = Math.max(window.scrollY - foldTravel, 0) * 1.2;
       const root = experienceRef.current;
       root?.style.setProperty('--hero-height', `${100 - reveal * 66}svh`);
       root?.style.setProperty('--hero-radius', `${reveal * 34}px`);
+      root?.style.setProperty('--hero-exit', `${exit * -1}px`);
       root?.style.setProperty('--copy-scale', `${1 - reveal * 0.5}`);
       root?.style.setProperty('--image-scale', `${1.04 + reveal * 0.16}`);
       root?.style.setProperty('--image-shift', `${reveal * -22}px`);

@@ -36,7 +36,7 @@ export const defaultContent: SiteContent = {
   hero: {
     title: 'HUSTLE',
     subtitle: 'with modni.',
-    scrollLabel: 'explore',
+    scrollLabel: 'гортай вниз',
   },
   section: {
     eyebrow: 'MODNI FLOW / OFFICIAL LINKS',
@@ -45,8 +45,8 @@ export const defaultContent: SiteContent = {
   banner: {
     enabled: true,
     eyebrow: 'THE LATEST',
-    title: 'NEW DROP',
-    note: 'tap to explore',
+    title: 'SUMMER SALE',
+    note: 'акція діє до 15 вересня',
     href: 'https://modniflow.com/',
     image: '/assets/hero.jpg',
     alt: 'Нова добірка MODNI FLOW',
@@ -54,27 +54,27 @@ export const defaultContent: SiteContent = {
   links: [
     {
       label: 'Website',
-      note: 'official store',
+      note: 'Офіційний магазин',
       href: 'https://modniflow.com/',
     },
     {
       label: 'Instagram',
-      note: 'daily style & drops',
+      note: 'Стиль та життя',
       href: 'https://www.instagram.com/modni.flow/',
     },
     {
       label: 'OLX',
-      note: 'marketplace',
+      note: 'Маркетплейс',
       href: 'https://modniflow.olx.ua/',
     },
     {
       label: 'TikTok',
-      note: 'fits in motion',
+      note: 'Одягайся в русі',
       href: 'https://www.tiktok.com/@modni.flow?_r=1&_t=ZN-99BdbS0QZPC',
     },
     {
       label: 'YouTube',
-      note: 'stories & reviews',
+      note: 'Історії і огляди',
       href: 'https://www.youtube.com/@modniflow',
     },
   ],
