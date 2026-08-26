@@ -47,7 +47,7 @@ export const defaultContent: SiteContent = {
     eyebrow: 'THE LATEST',
     title: 'SUMMER SALE',
     note: 'акція діє до 15 вересня',
-    href: 'https://modniflow.com/',
+    href: 'https://modniflow.com/last-summer-sale/',
     image: '/assets/hero.jpg',
     alt: 'Нова добірка MODNI FLOW',
   },
